@@ -47,17 +47,3 @@ def _write_to_file(text, file_path):
     print("[INFO] Writing text to file: {0}".format(file_path))
     with open(file_path, 'w') as fp:
         fp.write(text)
-
-
-if __name__ == '__main__':
-    if len(sys.argv) == 1:
-        print("python3 ocr.py <path>")
-        print("Provide the path to an image or the path to a directory containing images")
-        exit(1)
-
-    if os.path.isdir(sys.argv[1]):
-        converted_text_map = read_images_from_dir(sys.argv[1], write_to_file=True)
-    elif os.path.exists(sys.argv[1]):
-        print(read_image(sys.argv[1]))
-    else:
-        print("Unable to process this file. Please check if it exists and is readable.")
